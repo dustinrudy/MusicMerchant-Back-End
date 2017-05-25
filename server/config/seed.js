@@ -7,6 +7,26 @@
 import sqldb from '../sqldb';
 var Thing = sqldb.Thing;
 var User = sqldb.User;
+var Listing = sqldb.Listing;
+
+
+Listing.sync()
+  .then(function(){
+    return Listing.destory({where {} });
+  })
+  .then(function(){
+    Listing.bulkCreate([{
+    description: 'This is a great guitar',
+    category_id: [1,2,3,4],
+    title: "1950's Gibson Guitar",
+    price: 2000,
+    sale_trade: 'S',
+    condition: 'Used',
+    user_id: 1,
+    views: 200,
+    date_posted: 12/02/2017
+    }]);
+  });
 
 Thing.sync()
   .then(function() {
