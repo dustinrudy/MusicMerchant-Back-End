@@ -17,6 +17,7 @@ var db = {
 db.User = db.sequelize.import('../api/user/user.model');
 db.Thing = db.sequelize.import('../api/thing/thing.model');
 db.Listing = db.sequelize.import('../api/listing/listing.model');
-db.Zip = db.sequelize.import('../api/zip/zip.model')
+db.Zip = db.sequelize.import('../api/zip/zip.model');
+db.MSA = db.sequelize.import('../api/msa/msa.model');
 
 module.exports = db;

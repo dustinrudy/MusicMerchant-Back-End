@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: true,
     paranoid: true,
     underscored: true,
-    freezeTableName:true,
+    freezeTableName: true,
     tableName:'zips'
 
   });
