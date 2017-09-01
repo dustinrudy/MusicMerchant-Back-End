@@ -17,6 +17,9 @@ module.exports = function(sequelize, DataTypes) {
        autoIncrement: true
     },
     name: DataTypes.STRING,
+    state: DataTypes.STRING,
+    city: DataTypes.STRING,
+    zip: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       unique: {

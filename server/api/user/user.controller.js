@@ -50,17 +50,17 @@ exports.index = function(req, res) {
  * Creates a new user
  */
 exports.create = function(req, res, next) {
-  
+console.log(req.body, 'req.body')
   var newUser = User.build(req.body);
   newUser.setDataValue('provider', 'local');
   newUser.setDataValue('role', 'user');
   newUser.save()
     .then(function(user) {
-      
+
         var token = jwt.sign({ id: user.id }, config.secrets.session, {
           expiresIn: 60 * 60 * 5
         });
-      
+
       res.json({ token: token });
     })
     .catch(validationError(res));
@@ -104,8 +104,8 @@ exports.destroy = function(req, res) {
  * Change a users password
  */
 exports.changePassword = function(req, res, next) {
-  
-   var userId = req.user.id; 
+
+   var userId = req.user.id;
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
 
@@ -132,7 +132,7 @@ exports.changePassword = function(req, res, next) {
  * Get my info
  */
 exports.me = function(req, res, next) {
-   var userId = req.user.id; 
+   var userId = req.user.id;
 
   User.find({
     where: {
