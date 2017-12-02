@@ -12,7 +12,7 @@ var Listing = sqldb.Listing;
 
 Listing.sync()
   .then(function(){
-    return Listing.destory({where {} });
+    return Listing.destory({where: {} });
   })
   .then(function(){
     Listing.bulkCreate([{
@@ -24,7 +24,7 @@ Listing.sync()
     condition: 'Used',
     user_id: 1,
     views: 200,
-    date_posted: 12/02/2017
+    date_posted: new Date()
     }]);
   });
 
